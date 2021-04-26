@@ -1,0 +1,2 @@
+class Baloon < ApplicationRecord
+end

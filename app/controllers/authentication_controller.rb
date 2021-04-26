@@ -5,14 +5,14 @@ class AuthenticationController < ApplicationController
 
     if (!user)
       render json: { message: 'Invalid username'}
-    end
-    
-    if user.authenticate(params[:password])
-      render json: { message: 'Correct password'}
     else
-      render json: { message: 'Invalid password'}
+      if user.authenticate(params[:password])
+        render json: { message: 'Correct password'}
+      else
+        render json: { message: 'Invalid password'}
+      end  
     end
-      
   end
-  
+
 end
+
